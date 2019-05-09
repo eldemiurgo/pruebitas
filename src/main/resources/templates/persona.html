@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Listado de personas</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Listado de productos</h3>
+    <div class="col-md-12" >
+        <a th:href="@{/persona/add}" class="btn btn-primary">Agregar producto</a>
+    </div>
+
+    <div th:switch="products">
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Age</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="persona : ${persona}">
+                    <th scope="row" th:text="${persona.id}"></th>
+                    <td th:text="${persona.name}"></td>
+                    <td th:text="${persona.lasname}"></td>
+                    <td th:text="${persona.age}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
